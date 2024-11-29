@@ -11,7 +11,7 @@
     "href": "posts/chatgpt-api/chatgpt-api.html",
     "title": "ChatGPT API Guide",
     "section": "",
-    "text": "print(\"Hello world.\")\n\nHello world."
+    "text": "This is text used to test my blog upload.\n\nprint(\"Hello world.\")\n\nHello world."
   },
   {
     "objectID": "about.html",
