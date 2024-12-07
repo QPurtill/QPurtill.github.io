@@ -187,26 +187,85 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<p>This is a guide on how to access OpenAI’s API using python and the openai module. This guide will go over how to create an OpenAI account, how to get an API key, and how to access the API using said key.</p>
+<p>This is a guide on how to access OpenAI’s API using python and the openai module. This guide will go over how to create an OpenAI account, how to get an API key, and how to use said key with the API.</p>
 <section id="step-1-making-an-account" class="level1">
 <h1>Step 1: Making an Account</h1>
-<p>Start by going to platform.openai.com.</p>
-<div id="cell-4" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> openai <span class="im">import</span> OpenAI</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="im">import</span> os</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">ImportError</span> <span class="im">as</span> err:</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(err)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>No module named 'openai'</code></pre>
-</div>
-</div>
+<p>Start by going to https://platform.openai.com. In the top right corner, click the green “Sign Up” button. Either use your email to sign up or use one of the options below and follow the steps given to create your account.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/test_image.png" class="img-fluid figure-img"></p>
-<figcaption>Alt text for the image</figcaption>
+<figcaption>platform.openai home page</figcaption>
 </figure>
 </div>
+</section>
+<section id="step-2-creating-your-api-key" class="level1">
+<h1>Step 2: Creating Your API Key</h1>
+<p>To access the OpenAI API, you need an OpenAI API key. You can the API Keys page by going to your profile from your account icon in the upper right corner. From there, select API Keys on the left sidebar. You should be on this page.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/api_keys.png" class="img-fluid figure-img"></p>
+<figcaption>API Keys Webpage</figcaption>
+</figure>
+</div>
+<p>You can see my current API keys in the image. To create a new API key, click the green “Create new secret key” button in the upper right corner. Name the key whatever you want and select “Defualt project” from the Project dropdown. Then create the key.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/create_key.png" class="img-fluid figure-img"></p>
+<figcaption>API Key Creation Window</figcaption>
+</figure>
+</div>
+<p>Once the key is created, save it somewhere safe, but close by. You will never be able to access it from the website again, and we will need it to access the API.</p>
+</section>
+<section id="step-2.5-buying-credits" class="level1">
+<h1>Step 2.5: Buying Credits</h1>
+<p>In order to use the API, you will need to buy credits. Each call to the API will consume a very small amount of credits until you run out and the API key stops working. To being using the API, we will need to buy $5 worth of credits. From the same page as before, select Billing on the left sidebar. You should then be on the screen below.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/openai-billing.png" class="img-fluid figure-img"></p>
+<figcaption>API Credit Page</figcaption>
+</figure>
+</div>
+<p>Select “Add payment details” and selevt Individual. Input your payment information. Change the initial purchase amount to $5. Uncheck the automatic recharge option and click continue. Confirm the payment. These credits will give you token that will be consumed every time you make a call to the API, so you must keep your key safe to prevent unwanted usage.</p>
+</section>
+<section id="step-3-setting-up-the-api-code" class="level1">
+<h1>Step 3: Setting Up the API Code</h1>
+<p>Now, it is time to start accessing the API using python. In your IDE of choice, install the openai module using the terminal.</p>
+<div id="cell-17" class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pip install openai</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Next, import the openai and os modules.</p>
+<div id="cell-19" class="cell" data-execution_count="62">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> openai <span class="im">import</span> OpenAI</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="im">import</span> os</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">ImportError</span> <span class="im">as</span> err:</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(err)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Using the API key you created, set the environment variable.</p>
+<div id="cell-21" class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>os.environ[<span class="st">"OPENAI_API_KEY"</span>] <span class="op">=</span> <span class="st">"YOUR_KEY_HERE"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Finally, initialize the chatbot.</p>
+<div id="cell-23" class="cell" data-execution_count="64">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>client <span class="op">=</span> OpenAI(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    api_key<span class="op">=</span>os.environ.get(<span class="st">"OPEN_API_KEY"</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>chat_completion <span class="op">=</span> client.chat.completions.create(</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    messages<span class="op">=</span>[</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        {</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>            <span class="st">"role"</span>: <span class="st">"user"</span>,</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>            <span class="st">"content"</span>: <span class="st">"This is an example."</span>,</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    ],</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    model<span class="op">=</span><span class="st">"gpt-4o"</span>,</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(chat_completion.choices[<span class="dv">0</span>].message)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>ChatCompletionMessage(content='Got it! If you need help with anything specific or if you have a question, feel free to let me know.', refusal=None, role='assistant', audio=None, function_call=None, tool_calls=None)</code></pre>
+</div>
+</div>
+<p>First, we set the client using the api_key to gain access. Then, we set the content value in the messages list to “This is an example.” The exact response given will differ each time, but you can see that the value of the content key is equivalent to the prompt given to ChatGPt. The model variable is the name of a ChatGPT model to tell it which one to use. The higher level the model, the more tokens it will consume with each use. To learn more about all of the available models, you can go to https://platform.openai.com/docs/models.</p>
 
 
 </section>
