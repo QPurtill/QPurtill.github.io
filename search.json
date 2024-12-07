@@ -11,7 +11,7 @@
     "href": "posts/chatgpt-api/chatgpt-api.html",
     "title": "ChatGPT API Guide",
     "section": "",
-    "text": "This is text used to test my blog upload.\n\nprint(\"Hello world.\")\n\nHello world."
+    "text": "This is a guide on how to access OpenAI’s API using python and the openai module. This guide will go over how to create an OpenAI account, how to get an API key, and how to access the API using said key.\n\nStep 1: Making an Account\nStart by going to platform.openai.com.\n\ntry:\n    from openai import OpenAI\n    import os\nexcept ImportError as err:\n    print(err)\n\nNo module named 'openai'\n\n\n\n\n\nAlt text for the image"
   },
   {
     "objectID": "about.html",
