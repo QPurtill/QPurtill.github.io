@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://QPurtill.github.io/qpurtill.github.io/posts/welcome/index.html</loc>
-    <lastmod>2024-11-28T21:17:07.952Z</lastmod>
-  </url>
-  <url>
     <loc>https://QPurtill.github.io/qpurtill.github.io/posts/chatgpt-api/chatgpt-api.html</loc>
-    <lastmod>2024-12-08T23:17:43.918Z</lastmod>
+    <lastmod>2024-12-08T23:52:14.697Z</lastmod>
   </url>
   <url>
     <loc>https://QPurtill.github.io/qpurtill.github.io/about.html</loc>
@@ -15,9 +11,5 @@
   <url>
     <loc>https://QPurtill.github.io/qpurtill.github.io/index.html</loc>
     <lastmod>2024-11-28T21:17:07.950Z</lastmod>
-  </url>
-  <url>
-    <loc>https://QPurtill.github.io/qpurtill.github.io/posts/post-with-code/index.html</loc>
-    <lastmod>2024-11-28T21:17:07.951Z</lastmod>
   </url>
 </urlset>

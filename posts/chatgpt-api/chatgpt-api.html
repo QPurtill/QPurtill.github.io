@@ -267,7 +267,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>First, we set the client using the api_key to gain access. Then, we set the content value in the messages list to “This is an example.” The exact response given will differ each time, but you can see that the value of the content key is equivalent to the prompt given to ChatGPt. The model variable is the name of a ChatGPT model to tell it which one to use. The higher level the model, the more tokens it will consume with each use. To learn more about all of the available models, you can go to https://platform.openai.com/docs/models. The “.choices[0].message.content” at the end will access specifically the response. The rest will likely not be relevant for you, but you can experiment with removing parts from the end to look at the rest of the output.</p>
 <p>We can also use the input() function to give custom prompts. Because we have already set the API key, we will skip that step this time.</p>
-<div id="cell-26" class="cell" data-execution_count="24">
+<div id="cell-26" class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>prompt <span class="op">=</span> <span class="bu">input</span>()</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>chat_completion <span class="op">=</span> client.chat.completions.create(</span>
