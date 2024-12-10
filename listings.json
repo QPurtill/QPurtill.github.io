@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/blockchain/blockchain.html",
       "/posts/statsmodels/Statsmodels.html",
       "/posts/chatgpt-api/chatgpt-api.html"
     ]
